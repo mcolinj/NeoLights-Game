@@ -23,6 +23,7 @@ int delayval = 100; // delay for half a second
 class Position {
   public:
     Position(int r, int c) { row = r; col = c; }
+    Position(const Position &from) {  row = from.row; col = from.col; }
     int toIndex() { return 0; }
   private:
     int row, col;
@@ -47,7 +48,7 @@ int rowcol2idx(int row, int col) {
 //  color.  This function should just update the model.
 //  It should not call show or clear, etc...
 //
-void drawRectangle(AdaFruit_NeoPixel &pixels, Position ul, Position lr, Adafruit_NeoPixel::Color c) {
+void drawRectangle(Adafruit_NeoPixel &pixels, Position ul, Position lr, uint32_t c) {
   return;
 }
 
