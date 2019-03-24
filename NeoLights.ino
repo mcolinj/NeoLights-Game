@@ -20,6 +20,14 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 
 int delayval = 100; // delay for half a second
 
+class Position {
+  public:
+    Position(int r, int c) { row = r; col = c; }
+    int toIndex() { return 0; }
+  private:
+    int row, col;
+};
+
 int rowcol2idx(int row, int col) {
   int colstart = col * 8;
   if((col % 2) != 0) {
@@ -34,7 +42,6 @@ void setup() {
   pixels.clear();
   pixels.show();
 }
-
 
 void loop() {
   for(int i = 0; i < 8; i++){
