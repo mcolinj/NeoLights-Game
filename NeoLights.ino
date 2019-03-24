@@ -1,6 +1,6 @@
 // NeoPixel Ring simple sketch (c) 2013 Shae Erisson
 // released under the GPLv3 license to match the rest of the AdaFruit NeoPixel library
-
+#include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
   #include <avr/power.h>
@@ -28,6 +28,10 @@ class Position {
     int row, col;
 };
 
+//
+//  Since this converts a position into a neo index, it should be
+//  incorporated into the Position class.
+//
 int rowcol2idx(int row, int col) {
   int colstart = col * 8;
   if((col % 2) != 0) {
@@ -35,6 +39,16 @@ int rowcol2idx(int row, int col) {
   } else {
     return colstart + row;
   }
+}
+
+//
+//  Given a position in the upper left and lower
+//  right corners, draw the rectangle with the specified
+//  color.  This function should just update the model.
+//  It should not call show or clear, etc...
+//
+void drawRectangle(AdaFruit_NeoPixel &pixels, Position ul, Position lr, Adafruit_NeoPixel::Color c) {
+  return;
 }
 
 void setup() {
